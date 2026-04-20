@@ -25,3 +25,10 @@ public:
 		printf("Point destructed");
 	}
 };
+
+int main() {
+	Point p;
+	Point p1(1., 2.);
+	Point p2(p1);
+	return 0;
+}
