@@ -3,9 +3,11 @@
 using namespace std;
 
 class Point {
-public:
+protected:
 	double x;
 	double y;
+
+public:
 	Point() {
 		x = 0;
 		y = 0;
@@ -24,11 +26,31 @@ public:
 	~Point() {
 		printf("Point destructed");
 	}
+
+	void setPosition(double x, double y) {
+		this->x = x;
+		this->y = y;
+	}
+
+	void reset(){}
 };
 
+void Point::reset() {
+	this->x = 0;
+	this->y = 0;
+}
+
 int main() {
-	Point p;
-	Point p1(1., 2.);
-	Point p2(p1);
+	Point point;
+	Point point1(1., 2.);
+	Point point2(point1);
+
+	Point* pointP = new Point();
+	Point* point1P = new Point(1., 2.);
+	Point* point2P = new Point(*point1P);
+
+	delete pointP;
+	delete point1P;
+	delete point2P;
 	return 0;
 }
