@@ -41,12 +41,12 @@ public:
 void Point::reset() {
 	x = 0;
 	y = 0;
+	printf("Point resetted\n");
 }
 
 class Circle: public Point {
 protected:
 	double radius;
-
 public:
 	Circle() : Point(){
 		radius = 1.;
@@ -136,7 +136,7 @@ public:
 int main() {
 	Point point;
 	Point point1(1., 2.);
-	Point point2(point1);
+	Circle circle;
 	printf("---\n");
 	Point* pointP = new Point();
 	Point* point1P = new Point(1., 2.);
@@ -150,6 +150,7 @@ int main() {
 	delete pointWithRadius;
 	printf("---\n");
 	Point* pwr = new Circle(2., 1., 1.);
+	pwr->reset();
 	delete pwr;
 	printf("---\n");
 	Canvas1 *can1 = new Canvas1();
