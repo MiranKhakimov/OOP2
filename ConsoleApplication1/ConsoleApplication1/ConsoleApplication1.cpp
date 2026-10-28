@@ -34,6 +34,12 @@ public:
 		this->x = x;
 		this->y = y;
 	}
+	double getX(){
+		return x;
+	}
+	double getY(){
+		return y;
+	}
 
 	void reset();
 };
@@ -68,6 +74,9 @@ public:
 
 	~Circle() {
 		printf("Circle destructed\n");
+	}
+	double getRadius(){
+		return radius;
 	}
 
 	void setRadius(double radius) {
@@ -158,7 +167,23 @@ int main() {
 	printf("---\n");
 	Canvas2 *can2 = new Canvas2();
 	delete can2;
-
+	printf("---\n");
+	Circle a(1., 2., 3.);
+    Circle b = a;
+	printf("---\n");
+	printf("a: x=%f y=%f radius=%f\n", a.getX(), a.getY(), a.getRadius());
+	a = Circle(2., 5., 1.);
+	printf("---\n");
+	printf("a: x=%f y=%f radius=%f\n", a.getX(), a.getY(), a.getRadius());
+    printf("b: x=%f y=%f radius=%f\n", b.getX(), b.getY(), b.getRadius());
+	printf("---\n");
+	Circle* p1 = new Circle(1., 2., 3.);
+    Circle* p2 = p1;  
+	p1->setRadius(10.);
+    p1->setPosition(100., 200.);
+    printf("p1: x=%f y=%f r=%f\n", p1->getX(), p1->getY(), p1->getRadius());
+    printf("p2: x=%f y=%f r=%f\n", p2->getX(), p2->getY(), p2->getRadius());
+	delete p1;
 	getchar();
 	return 0;
 }
